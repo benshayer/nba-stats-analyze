@@ -1,2 +1,2 @@
 # nba-stats-analyze
-Analyze NBA stats for GM desicion
+This app will help NBA fans to compare between NBA players' stats
