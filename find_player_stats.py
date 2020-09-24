@@ -14,8 +14,9 @@ def player_stats(full_name,season):
 		player_stats_json=requests.get(f'https://www.balldontlie.io/api/v1/season_averages?season={season}&player_ids[]={player_id}').json()
 		try:
 			player_stats_dict=player_stats_json['data'][0]
-			print(f'First Name: {first_name}, Last Name:{last_name}, Position:{player_position}')
-			print(player_stats_dict)
+			player_profile_dict={'first_name':first_name, 'last_name':last_name,'Position':player_position,'Team':player_team}
+			player_list=[player_profile_dict,player_stats_dict]
+			return player_list
 		except:
 			return(f'{first_name} {last_name} didn not play in the NBA this season')
 
@@ -23,4 +24,5 @@ def player_stats(full_name,season):
 		return(f'There is no player in the NBA named {full_name}')
 
 
-player_stats(full_name,201)
+#tatum_list=player_stats(full_name,2017)
+#print(tatum_list)
