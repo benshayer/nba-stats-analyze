@@ -1,0 +1,63 @@
+{% extends "data/base.html" %}
+{% block content %}
+<form>
+  <label for="teams">Choose a Team:</label>
+  <select id="teams" name="teamname">
+  {% for team in teams %}
+    <option value="{{team}}">{{team}}</option>
+  {% endfor %}
+  </select>
+  <input value="Choose" type="submit" name="mybtn2">
+</form>
+
+<form>
+  <label for="players">Choose a Player:</label>
+
+  <select id="players" name="playername">
+  {% for player in players %}
+    <option value="{{player}}">{{player}}</option>
+  {% endfor %}
+  </select>
+  <input value="Choose" type="submit" name="mybtn">
+</form>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2></h2>
+
+<table>
+  <tr>
+    <th>Player Name</th>
+    <th>Position</th>
+    <th>Team</th>
+  </tr>
+  <tr>
+    {% for info in profile %}
+    <td>{{info}}</td>
+    {% endfor%}
+  </tr>
+</table>
+
+
+
+{% for data in stats %}
+    <p>{{ data }}</p>
+{% endfor %}
+{% endblock content%}
